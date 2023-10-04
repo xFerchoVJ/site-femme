@@ -1,3 +1,5 @@
+import { dataPaths } from './data-gallery.js'
+
 /**
  * Template Name: Append
  * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -164,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelectorAll(".isotope-layout")
       .forEach(function (isotopeItem) {
-        let layout = isotopeItem.getAttribute("data-layout") ?? "masonry";
+        let layout = isotopeItem.getAttribute("data-layout") ?? "packery";
         let filter = isotopeItem.getAttribute("data-default-filter") ?? "*";
         let sort = isotopeItem.getAttribute("data-sort") ?? "original-order";
 
