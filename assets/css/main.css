@@ -241,6 +241,14 @@ section {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
+.white-navtoggle{
+  color: white;
+}
+
+.black-navtoggle{
+  color: black;
+}
+
 /* Global Scroll Margin Top
 ------------------------------*/
 section {
@@ -432,7 +440,6 @@ section {
 /* Mobile Navigation */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: black;
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
@@ -1349,6 +1356,18 @@ section {
 
 .portfolio .portfolio-filters li:last-child {
   margin-right: 0;
+}
+
+.show-more-button{
+  background-color: var(--primary-color);
+  color: #0d0d0d;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 30px;
+}
+
+.show-more-button:hover{
+  background-color: rgba(var(--primary-color-rgb), 0.5);
 }
 
 @media (max-width: 575px) {

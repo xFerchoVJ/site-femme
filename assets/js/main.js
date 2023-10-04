@@ -10,6 +10,13 @@ import { dataPaths } from './data-gallery.js'
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
+
+  //Agregar lazy load a todas las imgs
+  const imgs = document.querySelectorAll("img");
+  imgs.forEach((img) => {
+    img.setAttribute("loading", "lazy");
+  });
+
   /**
    * Scroll top button
    */
@@ -50,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectHeader = document.querySelector("#header");
   const selectLogoWhite = document.querySelector("#white-logo");
   const selectLogoBlack = document.querySelector("#black-logo");
+  const navbarButton = document.querySelector(".mobile-nav-toggle");
   function toggleScrolled() {
     if (
       !selectHeader.classList.contains("scroll-up-sticky") &&
@@ -65,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (selectLogoBlack.style.display = "block"))
       : ((selectLogoWhite.style.display = "block"),
         (selectLogoBlack.style.display = "none"));
+    window.scrollY > 100 ? navbarButton.classList.add("black-navtoggle")(navbarButton.classList.remove("white-navtoggle")) : navbarButton.classList.remove("black-navtoggle")(navbarButton.classList.add("white-navtoggle"));
   }
 
   document.addEventListener("scroll", toggleScrolled);
