@@ -92,11 +92,11 @@ section {
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 52px;
   position: relative;
 }
 
@@ -241,11 +241,11 @@ section {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
 }
 
-.white-navtoggle{
+.white-navtoggle {
   color: white;
 }
 
-.black-navtoggle{
+.black-navtoggle {
   color: black;
 }
 
@@ -685,6 +685,15 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+.b-example-divider {
+  height: 1rem;
+  background-color: var(--primary-color);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
 .footer {
   --background-color: #f4f4f4;
   color: var(--default-color);
@@ -723,16 +732,19 @@ section {
   font-family: var(--default-font);
 }
 
-.footer .social-links a {
+.footer .social-links a,
+button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  /* width: 40px;
+  height: 40px; */
   border-radius: 50%;
-  border: 1px solid rgba(var(--default-color-rgb), 0.5);
+  /* border: 1px solid rgba(var(--default-color-rgb), 0.5); */
+  border: none;
   font-size: 16px;
   color: rgba(var(--primary-color), 0.5);
+  background-color: rgba(var(--primary-color), 0.5);
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -740,6 +752,14 @@ section {
 .footer .social-links a:hover {
   color: var(--primary-color);
   border-color: var(--primary-color);
+}
+
+footer .social-links button .icon-custom:hover {
+  color: #f4a28e;
+}
+
+footer .social-links button .icon-custom {
+  color: var(--primary-color);
 }
 
 .footer h4 {
@@ -906,7 +926,6 @@ section {
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 50px;
-    font-weight: 700;
   }
 
   .hero p {
@@ -1283,7 +1302,7 @@ section {
 .features .features-item .image-stack .stack-back {
   grid-column: 4/-1;
   grid-row: 1;
-  width: 100%;
+  width: 90%;
   z-index: 1;
 }
 
@@ -1291,7 +1310,7 @@ section {
   grid-row: 1;
   grid-column: 1 / span 8;
   margin-top: 20%;
-  width: 100%;
+  width: 90%;
   z-index: 2;
 }
 
@@ -1358,16 +1377,18 @@ section {
   margin-right: 0;
 }
 
-.show-more-button{
+.show-more-button {
   background-color: var(--primary-color);
-  color: #0d0d0d;
+  color: white;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   padding: 10px 30px;
+  border-radius: 10px;
 }
 
-.show-more-button:hover{
-  background-color: rgba(var(--primary-color-rgb), 0.5);
+.show-more-button:hover {
+  background-color: #fb8d72;
+  color: white;
 }
 
 @media (max-width: 575px) {
@@ -1733,6 +1754,8 @@ section {
 }
 
 .team .member .member-info {
+  width: 80%;
+  margin: 0 auto;
   margin-top: 30px;
 }
 
@@ -1841,6 +1864,10 @@ section {
   font-size: 32px;
 }
 
+.testimonials .info p {
+  text-align: justify;
+}
+
 .testimonials .swiper {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
   background-color: #fff;
@@ -1870,6 +1897,11 @@ section {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0 5px 0;
+}
+
+.testimonials .testimonial-item h3,
+h4 {
+  font-family: var(--default-font);
 }
 
 .testimonials .testimonial-item h4 {
@@ -2131,6 +2163,44 @@ section {
 --------------------------------------------------------------*/
 /* Portfolio-details Section - Portfolio Details Page
 ------------------------------*/
+
+.btn-outline-primary {
+  --bs-btn-color: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--primary-color);
+  --bs-btn-hover-border-color: var(--primary-color);
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--primary-color);
+  --bs-btn-active-border-color: var(--primary-color);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--primary-color);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--primary-color);
+  --bs-gradient: none;
+}
+
+.btn-femme {
+  background-color: var(--primary-color);
+}
+
+.btn-femme:hover {
+  background-color: #fb8d72;
+}
+
+.border-bg-primary {
+  border-color: var(--primary-color);
+}
+
+.card__primary-bg {
+  background-color: var(--primary-color);
+}
+
+#container-femme h1 {
+  font-family: var(--default-font);
+}
+
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
 }

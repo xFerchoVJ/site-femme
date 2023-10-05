@@ -58,23 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectLogoWhite = document.querySelector("#white-logo");
   const selectLogoBlack = document.querySelector("#black-logo");
   const navbarButton = document.querySelector(".mobile-nav-toggle");
+  const indexPage = document.querySelector(".index-page");
   function toggleScrolled() {
-    if (
-      !selectHeader.classList.contains("scroll-up-sticky") &&
-      !selectHeader.classList.contains("sticky-top") &&
-      !selectHeader.classList.contains("fixed-top")
-    )
-      return;
-    window.scrollY > 100
-      ? selectBody.classList.add("scrolled")
-      : selectBody.classList.remove("scrolled");
-    window.scrollY > 100
-      ? ((selectLogoWhite.style.display = "none"),
-        (selectLogoBlack.style.display = "block"))
-      : ((selectLogoWhite.style.display = "block"),
-        (selectLogoBlack.style.display = "none"));
-    window.scrollY > 100 ? navbarButton.classList.add("black-navtoggle")(navbarButton.classList.remove("white-navtoggle")) : navbarButton.classList.remove("black-navtoggle")(navbarButton.classList.add("white-navtoggle"));
+    const headerClasses = selectHeader.classList;
+    const isSticky = headerClasses.contains("scroll-up-sticky") ||
+      headerClasses.contains("sticky-top") ||
+      headerClasses.contains("fixed-top");
+    const isScrollYGreaterThan100 = window.scrollY > 100;
+
+    if (!isSticky) return;
+
+    selectBody.classList.toggle("scrolled", isScrollYGreaterThan100);
+    
+    if (indexPage) {
+      selectLogoWhite.style.display = isScrollYGreaterThan100 ? "none" : "block";
+      selectLogoBlack.style.display = isScrollYGreaterThan100 ? "block" : "none";
+      const buttonClasses = navbarButton.classList;
+      buttonClasses.toggle("black-navtoggle", isScrollYGreaterThan100);
+      buttonClasses.toggle("white-navtoggle", !isScrollYGreaterThan100);
+    }
+
   }
+
 
   document.addEventListener("scroll", toggleScrolled);
   window.addEventListener("load", toggleScrolled);
@@ -229,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   function initSwiper() {
     document.querySelectorAll(".swiper").forEach(function (swiper) {
+      if (!document.querySelector(".swiper-config")) return;
       let config = JSON.parse(
         swiper.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -249,4 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   window.addEventListener("load", aosInit);
+
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 });
