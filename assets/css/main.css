@@ -1978,6 +1978,12 @@ h4 {
   }
 }
 
+@media (min-width: 768px) {
+  .testimonials .testimonial-item {
+    top: 60px;
+  }
+}
+
 /* Recent-posts Section - Home Page
 ------------------------------*/
 .recent-posts article {
