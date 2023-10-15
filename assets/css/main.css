@@ -1708,6 +1708,12 @@ footer .social-links button .icon-custom {
   position: relative;
 }
 
+@media (min-width: 768px){
+  .team .member{
+    width: 40%;
+  }
+}
+
 .team .member .member-img {
   margin: 0 80px;
   border-radius: 50%;
