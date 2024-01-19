@@ -1,5 +1,3 @@
-import { dataPaths } from './data-gallery.js'
-
 /**
  * Template Name: Append
  * Updated: Sep 18 2023 with Bootstrap v5.3.2
