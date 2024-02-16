@@ -643,6 +643,11 @@ section {
   animation: animate-preloader-3 0.6s infinite;
 }
 
+#preloader span {
+  color: white;
+  font-size: 16px;
+}
+
 @keyframes animate-preloader-1 {
   0% {
     transform: scale(0);
