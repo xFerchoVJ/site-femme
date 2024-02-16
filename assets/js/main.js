@@ -8,7 +8,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-
   //Agregar lazy load a todas las imgs
   const imgs = document.querySelectorAll("img");
   imgs.forEach((img) => {
@@ -59,7 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const indexPage = document.querySelector(".index-page");
   function toggleScrolled() {
     const headerClasses = selectHeader.classList;
-    const isSticky = headerClasses.contains("scroll-up-sticky") ||
+    const isSticky =
+      headerClasses.contains("scroll-up-sticky") ||
       headerClasses.contains("sticky-top") ||
       headerClasses.contains("fixed-top");
     const isScrollYGreaterThan100 = window.scrollY > 100;
@@ -67,17 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isSticky) return;
 
     selectBody.classList.toggle("scrolled", isScrollYGreaterThan100);
-    
+
     if (indexPage) {
-      selectLogoWhite.style.display = isScrollYGreaterThan100 ? "none" : "block";
-      selectLogoBlack.style.display = isScrollYGreaterThan100 ? "block" : "none";
+      selectLogoWhite.style.display = isScrollYGreaterThan100
+        ? "none"
+        : "block";
+      selectLogoBlack.style.display = isScrollYGreaterThan100
+        ? "block"
+        : "none";
       const buttonClasses = navbarButton.classList;
       buttonClasses.toggle("black-navtoggle", isScrollYGreaterThan100);
       buttonClasses.toggle("white-navtoggle", !isScrollYGreaterThan100);
     }
-
   }
-
 
   document.addEventListener("scroll", toggleScrolled);
   window.addEventListener("load", toggleScrolled);
@@ -254,15 +256,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.addEventListener("load", aosInit);
 
-  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+  const popoverTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="popover"]'
+  );
+  const popoverList = [...popoverTriggerList].map(
+    (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+  );
 
   //When one popover is already open close others
-  document.addEventListener('show.bs.popover', function (event) {
-    popoverList.forEach(popover => {
+  document.addEventListener("show.bs.popover", function (event) {
+    popoverList.forEach((popover) => {
       if (popover._element !== event.target) {
         popover.hide();
       }
     });
   });
+
+  /**
+   * Add Drawing Shape effect to the Upcoming Events Section
+   */
+  // Función para activar el efecto de dibujo propio en la sección de "Upcoming Events"
+  function activateSelfDrawingBorder(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("self-drawing-border"); // Agregamos la clase para el efecto de dibujo propio
+        observer.unobserve(entry.target); // Dejamos de observar una vez que se activa el efecto
+      }
+    });
+  }
+  // Creamos una instancia del IntersectionObserver
+  const upcomingEventsObserver = new IntersectionObserver(
+    activateSelfDrawingBorder,
+    { threshold: 0.5 }
+  );
+
+  // Obtenemos la sección de "Upcoming Events" por su ID
+  const upcomingEventsSection = document.getElementById("upcoming-events");
+
+  // Observamos la sección de "Upcoming Events" para activar el efecto cuando esté visible en la pantalla
+  if (upcomingEventsSection) {
+    upcomingEventsObserver.observe(upcomingEventsSection);
+  }
 });
