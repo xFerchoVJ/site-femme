@@ -1708,8 +1708,8 @@ footer .social-links button .icon-custom {
   position: relative;
 }
 
-@media (min-width: 768px){
-  .team .member{
+@media (min-width: 768px) {
+  .team .member {
     width: 40%;
   }
 }
@@ -3044,4 +3044,139 @@ h4 {
 .blog-details .comments .reply-form .btn-primary:hover {
   color: var(--contrast-color);
   background-color: rgba(var(--primary-color-rgb), 0.8);
+}
+
+.self-drawing-border {
+  border: 7px solid transparent;
+  border-radius: 25px;
+  position: relative;
+  animation: drawBorder 6s ease forwards;
+}
+
+@keyframes drawBorder {
+  0% {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+  25% {
+    border-top-color: #ffc2b2;
+  }
+  50% {
+    border-right-color: #ffc2b2;
+  }
+  75% {
+    border-bottom-color: #ffc2b2;
+  }
+  100% {
+    border-left-color: #ffc2b2;
+  }
+}
+
+.upcoming-events {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 25px;
+  border: 6px solid #ffc2b2;
+  margin-bottom: 65px;
+  overflow: hidden;
+}
+
+.upcoming-events h2 {
+  font-weight: 700;
+  font-family: var(--default-font);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.wrapper-events {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.photo-container {
+  font-size: 1.5em;
+  background-color: #ffc2b2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  grid-area: photo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-container {
+  margin: 10px;
+  display: grid;
+  grid-template-areas: "photo info";
+  grid-template-columns: 150px 1fr;
+  width: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  line-height: 1.75em;
+  transition: transform 0.3s ease; /* Agregamos una transición suave al transform */
+}
+
+.card-container:hover {
+  transform: translateY(
+    -5px
+  ); /* Movemos ligeramente hacia arriba al hacer hover */
+}
+
+.event-container {
+  display: flex;
+  justify-content: space-evenly; /* Centra los elementos */
+}
+
+.info-container {
+  padding: 20px;
+  grid-area: info;
+}
+
+/* Agregamos efecto de transición suave a la información */
+.info-container {
+  padding: 20px;
+  grid-area: info;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Agregamos una transición suave */
+}
+
+/* Cambiamos los colores al hacer hover sobre la tarjeta */
+.card-container:hover .info-container {
+  background-color: #ffe3d5;
+  color: #333;
+}
+.event-name {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.event-location {
+  font-weight: 300;
+}
+.day {
+  font-weight: 300;
+}
+.month {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .upcoming-events {
+    border: 5px solid #ffc2b2;
+  }
+
+  .event-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .card-container {
+    width: 90%;
+  }
+
+  .info-container {
+    padding: 15px;
+  }
 }
